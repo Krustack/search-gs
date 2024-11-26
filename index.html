@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mitr" />
+  <?!= HtmlService.createHtmlOutputFromFile('Style').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('Navbar').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('Footer').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('Result').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('Form').getContent(); ?>
+</head>
+
+<body>
+
+  <nav-comp>
+    <span><img src="https://static.wixstatic.com/media/e143c0_32d158ac4add4ccea91c550512070185~mv2.png/v1/fill/w_74,h_85,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Chonradsadornumrung_School.png"  alt="cru-logo" width="50px" /> </span>
+    <span>
+        <img src="https://i.pinimg.com/originals/3b/39/5f/3b395f20aa82f2203ab2c413031c3d63.png" alt="worldclass-school-logo" width="60px" />
+      </span>
+    <span class="navbar-brand mb-0 h1 text-light">โรงเรียนชลราษฎรอำรุง</span>
+  </nav-comp>
+
+  <main style="min-height:calc(100vh - 73.43px - 445px -150px)">
+    <form-comp>
+      <form id="search-form" class="form-inline">
+        <div class="form-group mb-2">
+          <label for="searchtext">กรอกชื่อเพื่อค้นหาเกียรติบัตร</label>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <input
+                    type="text"
+                    class="form-control"
+                    id="searchtext"
+                    name="searchtext"
+                    placeholder="กรอกชื่อ...."
+                  />
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">
+          ค้นหา
+        </button>
+      </form>
+    </form-comp>
+
+    <result-comp>
+      <div id="search-results" class="table-responsive">
+      </div>
+    </result-comp>
+  </main>
+
+  <footer-comp>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+    </svg>
+  </footer-comp>
+
+
+
+
+  <?!= HtmlService.createHtmlOutputFromFile('Js').getContent(); ?>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

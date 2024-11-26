@@ -1,0 +1,47 @@
+  <script>
+    const searchForm  = document.getElementById("search-form");
+    const searchResults = document.getElementById("search-results");
+
+      function handleFormSubmit(event) {
+        event.preventDefault();
+        const formObject = event.target;
+        google.script.run
+          .withSuccessHandler(createTable)
+          .processForm(formObject);
+        formObject.reset();
+      }
+
+
+      function createTable(studentsData) {
+        if (studentsData && studentsData.length !== 0) {
+          let result =
+            `<table class='table table-sm table-striped table-hover' id='dtable'>
+              <thead style='white-space: nowrap'>
+                <tr>
+                  <th scope='col'>รายการ</th>
+                  <th scope='col'>ชื่อ สกุล</th>
+                  <th scope='col'>สกุล</th>
+                  <th scope='col'>ประเภทกีฬา</th>
+                  <th scope='col'>ดาวน์โหลด</th>
+                </tr>
+              </thead>
+              <tbody>`;
+          for (const student of studentsData) {
+            result += `<tr>
+                            <td> ${student.sportId} </td>
+                            <td>${student.firstName}</td>
+                            <td>${student.surName}</td>
+                            <td>${student.sport}</td>
+                            <td> <a href="${student.certURL}" target="_blank">ดาวโหลด🔽</a></td>
+                        </tr>`;
+          }
+          result += "</tbody></table>";
+          searchResults.innerHTML = result;
+        } else {
+          searchResults.innerHTML = "ไม่พบข้อมูลที่ค้นหา!";
+        }
+      }
+      
+
+      searchForm.addEventListener("submit", handleFormSubmit);
+  </script>
